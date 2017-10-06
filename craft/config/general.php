@@ -43,7 +43,7 @@
 			// TODO;
 
 			// Base site URL
-			'siteUrl' => '',
+			'siteUrl' => 'http://178.62.81.48/',
 
 			// Environment-specific variables (see https://craftcms.com/docs/multi-environment-configs#environment-specific-variables)
 			'environmentVariables' => array(),
@@ -61,7 +61,7 @@
 			'cpTrigger' => 'admin',
 
 			// Dev Mode (see https://craftcms.com/support/dev-mode)
-			'devMode' => false,
+			'devMode' => true,
 
 			// changed to ensure PayPal checkout works
 			'tokenParam' => 'craftToken',
