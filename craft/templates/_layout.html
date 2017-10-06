@@ -1,0 +1,122 @@
+{#
+ # Layout template
+ # ---------------
+ #
+ # This template defines your site’s global layout. It can be
+ # “extended” by other templates to fill in the gaps.
+ #
+ # See Twig’s Template Inheritance documentation for more details:
+ # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
+ #}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>{% if entry.title is defined %}{{ entry.title }} - {% endif %}{{ siteName }}</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width initial-scale=1 maximum-scale=1 user-scalable=no">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <link rel="stylesheet" href="/css/style.css">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@GraphicalHouse">
+  <meta name="twitter:creator" content="@GraphicalHouse">
+  <meta name="twitter:title" content="Bute Fabrics by Graphical House">
+  <meta name="twitter:description" content="">
+  <meta name="twitter:image" content="">
+</head>
+
+<body class="black bg-white graphik fw2 f4 f3-l lh-copy"><svg style="position: absolute; width: 0; height: 0;" width="0" height="0" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+
+  <defs>
+  <symbol id="icon-arrow" viewBox="0 0 883 1024">
+  <title>arrow</title>
+  <path fill="#fff" class="path1" d="M423.724 0v955.145l-397.241-388.414-26.483 26.483 441.379 430.786 441.379-430.786-24.717-28.248-397.241 390.179v-955.145z"></path>
+  </symbol>
+  </defs>
+  </svg>
+  <header class="fixed pv4 pv3-s bg-white w-100 top-0 z-5">
+    <div class="cf w-80 w-90-xl w-100-m center">
+      <div class="fl w-50 w-50-ms ph4 ph3-s">
+        <h1 class="fw4 f4 f3-l"><a class="transition-bb" href="/">Graphical House</a></h1></div>
+      <div class="fl w-sixth dn-ms ph4"><a class="transition-bb" href="/#work">Work</a></div>
+      <div class="fl w-sixth w-25-ms ph4 ph3-s"><a class="transition-bb" href="/information">Information</a></div>
+      <div class="fl w-sixth w-25-ms ph4 ph3-s"><a class="transition-bb" href="/journal">Journal</a></div>
+    </div>
+  </header>
+
+  {% if entry.heroImage | length %} {% for asset in entry.heroImage %}
+  <div class="w-100 aspect-ratio aspect-ratio--16x9 overflow-hidden"><img class="aspect-ratio--object z-1 o-0 transition-opacity--long" src="/{{ asset.url }}" data-size="100" data-ratio="0.5625"></div>
+  {% endfor %} {% endif %}
+
+  <div class="w-100 pv6 pv5-m pv4-s">
+    <div class="w-80 w-90-xl w-100-m cf center">
+      <div class="fl w-50 w-100-ms pl4 pr5 pr4-m ph3-s">
+        <h2 class="f8 f7-l f6-s fw4 pb4 pb3-s">{{ entry.title }}</h2>
+        <div class="f8 f7-l f6-s fw4 transition-link--nested">{{ entry.standfirst }}</div>
+      </div>
+      <div class="fl w-50 w-100-ms f7 f6-l f5-s ph4 ph3-s transition-link--nested">{{ entry.body }}</div>
+    </div>
+  </div>
+  <div class="w-80 w-90-xl w-100-m center">
+    {% if entry.projectImages | length %} {% for asset in entry.projectImages %}
+    <div class="transition-child-hover media-1">
+      <div class="w-100 aspect-ratio aspect-ratio--4x3 overflow-hidden"><img class="aspect-ratio--object z-1 o-0 transition-opacity--long" src="/{{ asset.url }}" data-size="100" data-ratio="0.5625">
+        <div class="w-100 aspect-ratio aspect-ratio--16x9 overflow-hidden"></div>
+      </div>
+      <div class="w-100 cf pt4 pb2 pb4-ms pv3-s">
+        <div class="fl w-sixth ph4 ph3-s dn-ms">
+          <p class="light-silver">{{ loop.index }} of {{ entry.projectImages | length }}</p>
+        </div>
+        <div class="fl w-sixth w-third-m dn-ms pl4">
+          <ul class="list cf transition-me-hover o-0 o-100-m">
+            <li class="fl mr2"><a class="transition-bb" target="_blank" href="https://www.facebook.com/dialog/feed?app_id=421381364598726&amp;link=http%3A%2F%2Fwww.graphicalhouse.co.uk%2Fprojects%2Fbute-fabrics&amp;picture=https%3A%2F%2Fgh-gh.imgix.net%2Fbute-copyline-image-tdqs.jpg%3Fw%3D1024%26q%3D100&amp;name=Graphical%20House&amp;caption=Bute%20Fabrics.%20Strategy.%20Campaign%20line.&amp;redirect_uri=http%3A%2F%2Fwww.graphicalhouse.co.uk%2Fprojects%2Fbute-fabrics">Like.</a></li>
+            <li class="fl mr2"><a class="transition-bb" target="_blank" href="http://twitter.com/share?text=Bute%20Fabrics.%20Strategy.%20Campaign%20line.">Tweet.</a></li>
+            <li class="fl"><a class="transition-bb" target="_blank" href="//www.pinterest.com/pin/create/button/?url=http%3A%2F%2Fwww.graphicalhouse.co.uk%2Fprojects%2Fbute-fabrics&amp;media=https%3A%2F%2Fgh-gh.imgix.net%2Fbute-copyline-image-tdqs.jpg%3Fw%3D1024%26q%3D100&amp;description=Bute%20Fabrics.%20Strategy.%20Campaign%20line."
+                data-pin-do="buttonPin" data-pin-config="none">Pin.</a></li>
+          </ul>
+        </div>
+        <div class="fl w-two-thirds w-50-m w-100-ms ph4 ph3-s"><span class="relative fw4 mr2">{{ entry.title }}.</span><span class="relative inline--child"><p>{{ asset.title }}.</p>
+</span></div>
+      </div>
+    </div>
+    {% endfor %} {% endif %}
+  </div>
+  <div class="w-80 w-90-xl w-100-m center cf relative">
+    <div class="absolute w-100 pe-none prev-next--margin">
+      <div class="w-two-thirds w-100-ms fr bg-white pe-auto"><a class="fl ml4 ml3-s" href="/projects/channel-4">&larr; Channel 4</a><a class="fr mr4 mr3-s" href="/projects/mymy">MYMY &rarr;</a></div>
+    </div>
+  </div>
+  <div class="w-100 pv6 pv5-m pv4-s">
+    <div class="w-80 w-90-xl w-100-m cf center">
+      <div class="fl w-50 w-100-ms pl4 pr5 pr4-m ph3-s">
+        <h2 class="f7 f6-l f5-s fw4 pb4 pb3-s">{{ entry.testimonialTitle }}</h2></div>
+      <div class="fl w-50 w-100-ms f7 f6-l f5-s ph4 ph3-s transition-link--nested">
+        {{ entry.testimonial }}
+      </div>
+    </div>
+  </div>
+  <footer class="w-100 pv5 pv4-m">
+    <div class="w-80 w-90-xl w-100-m cf center">
+      <div class="fl w-50 w-100-ms ph4 ph3-s pb4-ms pb3-s">
+        <ul class="list cf">
+          <li class="fl mr2"><a class="transition-bb" href="https://www.facebook.com/GraphicalHouseLtd">Facebook</a></li>
+          <li class="fl mr2"><a class="transition-bb" href="https://twitter.com/graphicalhouse">Twitter</a></li>
+          <li class="fl mr2"><a class="transition-bb" href="https://www.linkedin.com/company/graphical-house">LinkedIn</a></li>
+          <li class="fl"><a class="transition-bb" href="https://instagram.com/graphicalhouse/">Instagram</a></li>
+        </ul>
+      </div>
+      <div class="fl w-50 w-100-ms ph4 ph3-s">
+        <p><a class="transition-bb" href="/cdn-cgi/l/email-protection#780b0c0d1c1117381f0a190810111b191410170d0b1d561b1715"><span class="__cf_email__" data-cfemail="04777071606d6b44637665746c6d6765686c6b7177612a676b69">studio@graphicalhouse.com</span></a>          <br> 53&thinsp;&mdash;&thinsp;61 King Street, Glasgow, G1 5RA, United Kingdom <br> 0141 553 5860</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+<script src="//code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="/js/script.js"></script>
+
+</html>
