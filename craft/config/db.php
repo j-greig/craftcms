@@ -29,7 +29,20 @@
 			'tablePrefix' => 'craft',
     ),
 
-    'digitalocean' => array(
-        'cooldownDuration' => 0,
+    '178.62.81.48' => array(
+			// The database server name or IP address. Usually this is 'localhost' or '127.0.0.1'.
+			'server' => 'localhost',
+
+			// The name of the database to select.
+			'database' => 'craftcms',
+
+			// The database username to connect with.
+			'user' => 'root',
+
+			// The database password to connect with.
+			'password' => '26f48e5851f9b6180fa2998a7592e4ad58335192607a08ca',
+
+			// The prefix to use when naming tables. This can be no more than 5 characters.
+			'tablePrefix' => 'craft',
     )
 );
